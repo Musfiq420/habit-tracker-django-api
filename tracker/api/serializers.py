@@ -8,9 +8,10 @@ class HabitSerializer(serializers.HyperlinkedModelSerializer):
     user = serializers.PrimaryKeyRelatedField(read_only=True)
     class Meta:
         model = Habit
-        fields = ['url', 'id', 'name', 'description', 'user']
+        fields = ['url', 'id', 'name', 'description', 'question', 'user', 'target_value', 'target_day']
 
 class HabitLogSerializer(serializers.HyperlinkedModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(read_only=True)
     class Meta:
         model = HabitLog
-        fields = ['url', 'id', 'habit', 'date', 'completed']
+        fields = ['url', 'id', 'habit', 'date', 'user', 'value']
