@@ -12,6 +12,7 @@ class HabitSerializer(serializers.HyperlinkedModelSerializer):
 
 class HabitLogSerializer(serializers.HyperlinkedModelSerializer):
     user = serializers.PrimaryKeyRelatedField(read_only=True)
+    habit = serializers.PrimaryKeyRelatedField(queryset=Habit.objects.all()) 
     class Meta:
         model = HabitLog
         fields = ['url', 'id', 'habit', 'date', 'user', 'value']
